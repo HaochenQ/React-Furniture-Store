@@ -11,4 +11,4 @@ Simple sign up with your email or google account.
 
 ## A ScreenShot
 
-![screenshot]()
+![screenshot](https://github.com/HaochenQ/React-Furniture-Store/blob/main/public/ScreenShot.png)
