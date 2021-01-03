@@ -3,7 +3,7 @@
 A online furniture store built with React and React hooks(useReduce and useContext).<be/>
 Design your dream home with our various morden furnitures.
 </br>
-Try the demo [here](https://www.cozyspace.com).
+Try the demo [here](https://www.cozyspace.co).
 
 ## Authentication with Auth0
 

@@ -63,6 +63,7 @@ const Wrapper = styled.section`
   }
   .clear-btn {
     background: var(--clr-black);
+    font-size: 14px;
   }
 `;
 export default CartContent;

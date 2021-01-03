@@ -55,12 +55,6 @@ export const ProductsProvider = ({ children }) => {
   const fetchProducts = async () => {
     dispatch({ type: GET_PRODUCTS_BEGIN });
     try {
-      // Client.getEntries({
-      //   content_type: "cozySpaceProducts",
-      // })
-      //   .then((response) => console.log(response.items))
-      //   .catch(console.error);
-
       // get content from contentful
       const response = await Client.getEntries({
         content_type: "cozySpaceProducts",
@@ -71,8 +65,6 @@ export const ProductsProvider = ({ children }) => {
       // get content from course api
       // const response = await axios.get(url);
       // const products = response.data;
-
-      console.log(products);
 
       dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products });
     } catch (error) {
@@ -90,15 +82,11 @@ export const ProductsProvider = ({ children }) => {
   const fetchSingleProduct = async (url) => {
     dispatch({ type: GET_SINGLE_PRODUCT_BEGIN });
     try {
-      // Client.getEntry("4pWQTmZY5rl2glKS7vBoeH")
-      // .then((entry) => console.log(entry))
-      // .catch(console.error);
       const entry = await await Client.getEntry(url);
       const product = formateSingleProductsData(entry, url);
       // course api
       // const response = await axios.get(url);
       // const product = response.data;
-      console.log(product);
       dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: product });
     } catch (error) {
       dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
