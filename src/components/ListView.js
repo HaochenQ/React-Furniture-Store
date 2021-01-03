@@ -1,11 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { formatPrice } from "../utils/helpers";
 import { Link } from "react-router-dom";
+import { items_per_page } from "../utils/constants";
+import Pagenation from "./Pagenation";
+import paginate from "../utils/paginate";
+
 const ListView = ({ products }) => {
+  const items_per_page = 4;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const handleLastPage = () => {
+    setCurrentPage(currentPage - 1);
+
+    return;
+  };
+
+  const handleNextPage = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [products]);
+
+  let temProducts = paginate(products, items_per_page)[currentPage - 1];
   return (
     <Wrapper>
-      {products.map((product) => {
+      {temProducts.map((product) => {
         const { id, name, image, price, description } = product;
         return (
           <article key={id}>
@@ -21,6 +47,14 @@ const ListView = ({ products }) => {
           </article>
         );
       })}
+      <Pagenation
+        ItemCount={products.length}
+        pageSize={items_per_page}
+        onPageChange={handlePageChange}
+        currentPage={currentPage}
+        onLastPage={handleLastPage}
+        onNextPage={handleNextPage}
+      ></Pagenation>
     </Wrapper>
   );
 };

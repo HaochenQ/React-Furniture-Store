@@ -38,14 +38,6 @@ const cart_reducer = (state, action) => {
       }
     }
     case COUNT_CART_TOTALS: {
-      // let totalItems = 0;
-      // let totalPrice = 0;
-      // state.cart.forEach((item) => {
-      //   totalPrice = totalPrice + item.price * item.amount;
-      //   totalItems = totalItems + item.amount;
-      // });
-      // return { ...state, total_items: totalItems, total_amount: totalPrice };
-
       const { total_items, total_amount } = state.cart.reduce(
         (total, item) => {
           const { price, amount } = item;
