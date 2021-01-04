@@ -18,7 +18,7 @@ const cart_reducer = (state, action) => {
               cartItem.amount + amount > cartItem.max
                 ? cartItem.max
                 : cartItem.amount + amount;
-            return { ...state, amount: newAmount };
+            return { ...cartItem, amount: newAmount };
           } else {
             return cartItem;
           }
