@@ -31,7 +31,7 @@ const ListView = ({ products }) => {
   let temProducts = paginate(products, items_per_page)[currentPage - 1];
   return (
     <Wrapper>
-      {temProducts.map((product) => {
+      {temProducts && temProducts.map((product) => {
         const { id, name, image, price, description } = product;
         return (
           <article key={id}>
