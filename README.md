@@ -3,7 +3,7 @@
 A online furniture store built with React and React hooks(useReduce and useContext).<be/>
 Design your dream home with our various morden furnitures.
 </br>
-Try the demo [here](https://romantic-brown-45acd5.netlify.app/).
+Try the demo [here](https://cozyspace.netlify.app/).
 
 ## Authentication with Auth0
 
