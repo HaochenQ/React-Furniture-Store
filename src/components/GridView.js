@@ -30,9 +30,10 @@ const GridView = ({ products }) => {
   return (
     <Wrapper>
       <div className="products-container">
-        {temProducts.map((product) => {
-          return <Product key={product.id} {...product} />;
-        })}
+        {temProducts &&
+          temProducts.map((product) => {
+            return <Product key={product.id} {...product} />;
+          })}
       </div>
       <Pagenation
         ItemCount={products.length}
