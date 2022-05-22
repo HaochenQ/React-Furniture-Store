@@ -31,22 +31,23 @@ const ListView = ({ products }) => {
   let temProducts = paginate(products, items_per_page)[currentPage - 1];
   return (
     <Wrapper>
-      {temProducts.map((product) => {
-        const { id, name, image, price, description } = product;
-        return (
-          <article key={id}>
-            <img src={image} alt={name} />
-            <div>
-              <h4>{name}</h4>
-              <h5 className="price">{formatPrice(price)}</h5>
-              <p className="desc">{description.substring(0, 150)}...</p>
-              <Link className="btn" to={`/products/${id}`}>
-                Details
-              </Link>
-            </div>
-          </article>
-        );
-      })}
+      {temProducts &&
+        temProducts.map((product) => {
+          const { id, name, image, price, description } = product;
+          return (
+            <article key={id}>
+              <img src={image} alt={name} />
+              <div>
+                <h4>{name}</h4>
+                <h5 className="price">{formatPrice(price)}</h5>
+                <p className="desc">{description.substring(0, 150)}...</p>
+                <Link className="btn" to={`/products/${id}`}>
+                  Details
+                </Link>
+              </div>
+            </article>
+          );
+        })}
       <Pagenation
         ItemCount={products.length}
         pageSize={items_per_page}
