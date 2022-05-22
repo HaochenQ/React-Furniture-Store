@@ -48,6 +48,7 @@ const ListView = ({ products }) => {
             </article>
           );
         })}
+
       <Pagenation
         ItemCount={products.length}
         pageSize={items_per_page}
